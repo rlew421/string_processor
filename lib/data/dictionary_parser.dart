@@ -16,8 +16,8 @@ void _parseJsonForDictionary(String jsonString, String selectedWord) {
 
   List data = decoded['data'];
 
-  var foundElement =
-      data.firstWhere((element) => element['word'] == selectedWord);
+  var foundElement = data
+      .firstWhere((element) => element['word'] == selectedWord.toLowerCase());
 
   var foundMessage = foundElement['message'];
   print(foundMessage);
