@@ -2,28 +2,7 @@ import 'package:flutter/material.dart';
 import 'data/dictionary_parser.dart';
 
 void main() {
-  // String str1 =
-  //     'The researchers found that word recall was greatest when the participants read aloud to themselves.';
-
-  // var split = str1.split(" ");
-
-  // write a function that takes an argument of each individual word and looks it up in the JSON file. When it looks it up in
-  // the JSON file, it should return its corresponding message
-  // findCorrespondingDefinition(word) {
-  //   split.forEach((word) => loadDefinition(word));
-  // };
-
-  // the onTap will call a function from dictionary_parser file
-  // this function in the dictionary_parser file will look in dictionary.json, specifically in
-  // the object.data[0], iterate through the keys, find the key that matches the word we passed in, and return the message that
-  // corresponds with that key
-
-  // print(str1);
-  // print(split);
-
   runApp(MyApp());
-  loadDictionary();
-  // loadCrossword();
 }
 
 class MyApp extends StatelessWidget {
@@ -72,37 +51,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // int _counter = 0;
-
-  // void _incrementCounter() {
-  //   setState(() {
-  //     // This call to setState tells the Flutter framework that something has
-  //     // changed in this State, which causes it to rerun the build method below
-  //     // so that the display can reflect the updated values. If we changed
-  //     // _counter without calling setState(), then the build method would not be
-  //     // called again, and so nothing would appear to happen.
-  //     _counter++;
-  //     print(_counter);
-  //   });
-  // }
-
-  // String _definition = '';
-
   var split =
       ('The researchers found that word recall was greatest when the participants read aloud to themselves.')
           .split(" ");
-
-  // _findCorrespondingDefinition(input) {
-  //   setState(() {
-  //     _definition = input;
-  //   });
-  //   print(_definition);
-  // }
-
-  String test() {
-    // this function will call the function in the dictionary_parser, which will look up the corresponding message in dictionary.json
-    return "hello world";
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -149,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 textAlign: TextAlign.center,
                 style: TextStyle(fontWeight: FontWeight.bold),
                 onTap: () {
-                  print(test());
+                  print(loadDictionary(word));
                 },
               ),
           ],
