@@ -52,7 +52,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   var split =
-      ('The researchers found that word recall was greatest when the participants read aloud to themselves.')
+      ("The researchers found that word recall was greatest when the participants read aloud to themselves. “This study confirms that learning and memory benefit from active involvement,” says study  author Colin M. MacLeod, a professor and chair of the Department of Psychology at the  University of Waterloo.")
+          .replaceAll('"', '\\"')
           .split(" ");
 
   @override
