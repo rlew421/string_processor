@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'data/crossword_parser.dart';
+import 'data/dictionary_parser.dart';
 
 void main() {
   runApp(MyApp());
-  loadCrossword();
 }
 
 class MyApp extends StatelessWidget {
@@ -52,18 +51,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  var split =
+      ('The researchers found that word recall was greatest when the participants read aloud to themselves.')
+          .split(" ");
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -99,22 +90,24 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SelectableText(
-              // I want to put each word in the paragraph into an array and then iterate over each word
-              // When I iterate over each word, I want to call a function that accepts that word as an argument
-              // and then looks up that word's corresponding definition in the local JSON file and print that definition to the console
-              'The researchers found that word recall was greatest when the participants read aloud to themselves.',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold),
-              onTap: () {
-                print("value of your text");
-              },
-            )
+            for (var word in split)
+              SelectableText(
+                // I want to put each word in the paragraph into an array and then iterate over each word
+                // When I iterate over each word, I want to call a function that accepts that word as an argument
+                // and then looks up that word's corresponding definition in the local JSON file and print that definition to the console
+                // I think I need to make a SeletableText out of each word?
+                word,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontWeight: FontWeight.bold),
+                onTap: () {
+                  print(loadDictionary(word));
+                },
+              ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        // onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
