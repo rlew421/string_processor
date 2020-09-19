@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
-import 'data/crossword_parser.dart';
+import 'data/dictionary_parser.dart';
 
 void main() {
+  String str1 =
+      'The researchers found that word recall was greatest when the participants read aloud to themselves.';
+
+  var split = str1.split(" ");
+
+  // write a function that takes an argument of each individual word and looks it up in the JSON file. When it looks it up in
+  // the JSON file, it should return its corresponding message
+  // findCorrespondingDefinition(word) {
+  //   split.forEach((word) => loadDefinition(word));
+  // };
+
+  print(str1);
+  print(split);
+
   runApp(MyApp());
-  loadCrossword();
+  // loadCrossword();
 }
 
 class MyApp extends StatelessWidget {
@@ -73,6 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -107,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
               textAlign: TextAlign.center,
               style: TextStyle(fontWeight: FontWeight.bold),
               onTap: () {
-                print("value of your text");
+                print('hello');
               },
             )
           ],
