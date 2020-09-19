@@ -2,8 +2,13 @@ import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 
-Future<String> _loadCrosswordAsset() async {
+Future<String> _loadDictionaryAsset() async {
   return await rootBundle.loadString('assets/data/dictionary.json');
+}
+
+Future loadDictionary() async {
+  String jsonDefinitions = await _loadDictionaryAsset();
+  print(jsonDefinitions);
 }
 
 // Crossword _parseJsonForCrossword(String jsonString) {
