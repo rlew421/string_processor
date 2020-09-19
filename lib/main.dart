@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'data/crossword_parser.dart';
 
 void main() {
   runApp(MyApp());
+  loadCrossword();
 }
 
 class MyApp extends StatelessWidget {
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter String Processor'),
     );
   }
 }
@@ -98,9 +100,15 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SelectableText(
+              // I want to put each word in the paragraph into an array and then iterate over each word
+              // When I iterate over each word, I want to call a function that accepts that word as an argument
+              // and then looks up that word's corresponding definition in the local JSON file and print that definition to the console
               'The researchers found that word recall was greatest when the participants read aloud to themselves.',
               textAlign: TextAlign.center,
               style: TextStyle(fontWeight: FontWeight.bold),
+              onTap: () {
+                print("value of your text");
+              },
             )
           ],
         ),
