@@ -1,0 +1,74 @@
+{
+"data": [
+    {
+        "id": 1,
+        "word": "The",
+        "message": "Article adjective"
+    },
+    {
+        "id": 2,
+        "word": "researchers",
+        "message": "People who study things"
+    },
+    {
+        "id": 3,
+        "word": "found",
+        "message": "To discover something"
+    },
+    {
+        "id": 4,
+        "word": "that",
+        "message": "that one"
+    },
+    {
+        "id": 5,
+        "word": "word",
+        "message": "a formation letters with meaning"
+    },
+    {
+        "id": 6,
+        "word": "recall",
+        "message": "the state of remembering something"
+    },
+    {
+        "id": 7,
+        "word": "was",
+        "message": "the past form of is"
+    },
+    {
+        "id": 8,
+        "word": "greatest",
+        "message": "the best"
+    },
+    {
+        "id": 8,
+        "word": "when",
+        "message": "the moment something occurs"
+    },
+    {
+        "id": 9,
+        "word": "participants",
+        "message": "people who are involved"
+    },
+    {
+        "id": 10,
+        "word": "read",
+        "message": "to form meaning from written words"
+    },
+    {
+        "id": 11,
+        "word": "aloud",
+        "message": "the state of sounding something out loud"
+    },
+    {
+        "id": 12,
+        "word": "to",
+        "message": "a preposition"
+    },
+    {
+        "id": 13,
+        "word": "themselves",
+        "message": "a self referencing plural object pronoun"
+    }
+  ]  
+}
