@@ -6,46 +6,21 @@ Future<String> _loadDictionaryAsset() async {
   return await rootBundle.loadString('assets/data/dictionary.json');
 }
 
-Future loadDictionary() async {
+Future loadDictionary(word) async {
   String jsonDefinitions = await _loadDictionaryAsset();
-  print(jsonDefinitions);
+  _parseJsonForDictionary(jsonDefinitions, word);
 }
 
-// Crossword _parseJsonForCrossword(String jsonString) {
-//   Map decoded = jsonDecode(jsonString);
+void _parseJsonForDictionary(String jsonString, String selectedWord) {
+  Map decoded = jsonDecode(jsonString);
 
-//   List<Word> words = new List<Word>();
-//   for (var word in decoded['across']) {
-//     words.add(new Word(word['number'], word['word']));
-//   }
+  List data = decoded['data'];
 
-//   return new Crossword(decoded['id'], decoded['name'], new Across(words));
-// }
+  var foundElement =
+      data.firstWhere((element) => element['word'] == selectedWord);
 
-// Future loadCrossword() async {
-//   String jsonCrossword = await _loadCrosswordAsset();
-//   Crossword crossword = _parseJsonForCrossword(jsonCrossword);
-
-//   print(crossword.name);
-// }
-
-// class Crossword {
-//   final int id;
-//   final String name;
-//   final Across across;
-
-//   Crossword(this.id, this.name, this.across);
-// }
-
-// class Across {
-//   final List<Word> words;
-
-//   const Across(this.words);
-// }
-
-// class Word {
-//   final int number;
-//   final String word;
-
-//   const Word(this.number, this.word);
-// }
+  var foundMessage = foundElement['message'];
+  print(foundMessage);
+}
+// _parseJsonForDictionary takes an argument of the JSON string from the JSON file and parses the string to return the resulting JSON object
+// _parseJsonForDictionary also takes an argument of the selected word which it uses to query the JSON object
