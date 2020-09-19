@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'data/dictionary_parser.dart';
 
 void main() {
-  String str1 =
-      'The researchers found that word recall was greatest when the participants read aloud to themselves.';
+  // String str1 =
+  //     'The researchers found that word recall was greatest when the participants read aloud to themselves.';
 
-  var split = str1.split(" ");
+  // var split = str1.split(" ");
 
   // write a function that takes an argument of each individual word and looks it up in the JSON file. When it looks it up in
   // the JSON file, it should return its corresponding message
@@ -13,10 +13,16 @@ void main() {
   //   split.forEach((word) => loadDefinition(word));
   // };
 
-  print(str1);
-  print(split);
+  // the onTap will call a function from dictionary_parser file
+  // this function in the dictionary_parser file will look in dictionary.json, specifically in
+  // the object.data[0], iterate through the keys, find the key that matches the word we passed in, and return the message that
+  // corresponds with that key
+
+  // print(str1);
+  // print(split);
 
   runApp(MyApp());
+  loadDictionary();
   // loadCrossword();
 }
 
@@ -66,17 +72,36 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  // int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  // void _incrementCounter() {
+  //   setState(() {
+  //     // This call to setState tells the Flutter framework that something has
+  //     // changed in this State, which causes it to rerun the build method below
+  //     // so that the display can reflect the updated values. If we changed
+  //     // _counter without calling setState(), then the build method would not be
+  //     // called again, and so nothing would appear to happen.
+  //     _counter++;
+  //     print(_counter);
+  //   });
+  // }
+
+  // String _definition = '';
+
+  var split =
+      ('The researchers found that word recall was greatest when the participants read aloud to themselves.')
+          .split(" ");
+
+  // _findCorrespondingDefinition(input) {
+  //   setState(() {
+  //     _definition = input;
+  //   });
+  //   print(_definition);
+  // }
+
+  String test() {
+    // this function will call the function in the dictionary_parser, which will look up the corresponding message in dictionary.json
+    return "hello world";
   }
 
   @override
@@ -114,22 +139,24 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SelectableText(
-              // I want to put each word in the paragraph into an array and then iterate over each word
-              // When I iterate over each word, I want to call a function that accepts that word as an argument
-              // and then looks up that word's corresponding definition in the local JSON file and print that definition to the console
-              'The researchers found that word recall was greatest when the participants read aloud to themselves.',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold),
-              onTap: () {
-                print('hello');
-              },
-            )
+            for (var word in split)
+              SelectableText(
+                // I want to put each word in the paragraph into an array and then iterate over each word
+                // When I iterate over each word, I want to call a function that accepts that word as an argument
+                // and then looks up that word's corresponding definition in the local JSON file and print that definition to the console
+                // I think I need to make a SeletableText out of each word?
+                word,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontWeight: FontWeight.bold),
+                onTap: () {
+                  print(test());
+                },
+              ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        // onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
